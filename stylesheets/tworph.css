@@ -1,0 +1,40 @@
+.tworph {
+  border: 2px solid #666;
+  padding: 20px 60px;
+  position: absolute;
+  display: none;
+  opacity: 0.5;
+  width: 0px;
+  height: 0px;
+  top: 0px;
+  left: 0px;
+  font-size: 0.1em;
+  z-index: 100;
+  background-color: #FFF;
+}
+
+.tworph_close {
+  position: absolute;
+  border: 1px solid #AAA;
+  padding: 0 5px 2px 6px;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.tworph_close:hover {
+  border: 1px solid #666;
+  background: #EEE;
+}
+
+.tworph img {
+  float: left;
+  margin-right: 12px;
+}
+#aptana_studio.tworph img {
+  width: 6.3em;
+}
+#textmate.tworph img {
+  width: 10em;
+}
+
