@@ -5,7 +5,7 @@ Tworph is a jQuery plugin inspired by the [TiddlyWiki](http://www.tiddlywiki.com
 You can use Tworph as a Lightbox application with all kind of content (Images, Flash movies or the HTML5 Canvas element).
 
 				
-#### Usage
+### Usage:
 
 	<script type="text/javascript" src="jquery.tworph.js"></script>
 	<script type="text/javascript">
