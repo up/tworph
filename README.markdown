@@ -7,6 +7,7 @@ You can use Tworph as a Lightbox application with all kind of content (Images, F
 				
 ### Usage:
 
+	<link rel="stylesheet" type="text/css" href="tworph.css" />
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="jquery.tworph.js"></script>
 	<script type="text/javascript">
@@ -15,7 +16,7 @@ You can use Tworph as a Lightbox application with all kind of content (Images, F
     		buttons: '.MY_DIV_LINK',   // <a href="javascript:;" class="MY_DIV_LINK">[LINKNAME]</a>
     		width: '800px',            // Width of MY_DIV
     		height: '340px',           // Height of MY_DIV
-    		fontsize: ['0.1em', '1em'] // Font size of MY_DIV (the first value is neccasary for zooming)
+    		fontsize: ['0.1em', '1em'] // Font size of MY_DIV (the first value is neccasary for the text zooming)
   		});
 	});
 	</script>`

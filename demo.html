@@ -48,7 +48,7 @@ $(document).ready(function() {
 	$("#tworph_info").tworph({
 		buttons: '.tworph_info_btn',
 		width: '800px',
-		height: '420px',
+		height: '450px',
 		fontsize: ['0.1em', '1em']
 	});
 	
@@ -75,14 +75,16 @@ $(document).ready(function() {
 			<p>You can use Tworph as a Lightbox application with all kind of content (Images, Flash movies or the HTML5 Canvas element).</p>
 			<br/>
 			<pre><code>				
+&lt;link rel="stylesheet" type="text/css" href="tworph.css" />
+&lt;script type="text/javascript" src="jquery.js">&lt;/script>
 &lt;script type="text/javascript" src="jquery.tworph.js">&lt;/script>
 &lt;script type="text/javascript">
 $(document).ready(function() {
-  $("#MY_DIV").tworph({        <span>// &lt;div id="MY_DIV" class="tworph">&lt;div></span>
-    buttons: '.MY_DIV_LINK',   <span>// &lt;a href="javascript:;" class="MY_DIV_LINK">&lt;a></span>
+  $("#MY_DIV").tworph({        <span>// &lt;div id="MY_DIV" class="tworph">&lt;/div></span>
+    buttons: '.MY_DIV_LINK',   <span>// &lt;a href="javascript:;" class="MY_DIV_LINK">&lt;/a></span>
     width: '800px',            <span>// Width of MY_DIV</span>
     height: '340px',           <span>// Height of MY_DIV</span>
-    fontsize: ['0.1em', '1em'] <span>// Font size of MY_DIV (the first value is neccasary for zooming)</span>
+    fontsize: ['0.1em', '1em'] <span>// Font size of MY_DIV (the first value is neccasary for text zoom)</span>
   });
 });
 &lt;/script>
