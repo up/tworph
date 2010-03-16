@@ -7,6 +7,7 @@ You can use Tworph as a Lightbox application with all kind of content (Images, F
 				
 ### Usage:
 
+	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="jquery.tworph.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
