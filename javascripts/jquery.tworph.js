@@ -13,7 +13,7 @@
  *
  */
 
- (function($) {
+ (function($) { 
     $.fn.tworph = function(param) {
 
         var settings = {
@@ -100,21 +100,21 @@
             }
 
             var top = $(window).height();
-            top -= parseInt($(param.id).css('paddingTop'));
-            top -= parseInt($(param.id).css('paddingBottom'));
-            top -= parseInt(param.height);
+            top -= parseInt($(param.id).css('paddingTop'),10);
+            top -= parseInt($(param.id).css('paddingBottom'),10);
+            top -= parseInt(param.height,10);
             top = top / 2;
             top += $("html").scrollTop();
 
             var left = $(window).width();
-            left -= parseInt($(param.id).css('paddingLeft'));
-            left -= parseInt($(param.id).css('paddingRight'));
-            left -= parseInt(param.width);
+            left -= parseInt($(param.id).css('paddingLeft'),10);
+            left -= parseInt($(param.id).css('paddingRight'),10);
+            left -= parseInt(param.width,10);
             left = left / 2;
 
             $(param.id).animate({
-                top: (Math.round(parseInt($(param.id).css('top'))) === d.t) ? top + 'px': d.t + 'px',
-                left: (Math.round(parseInt($(param.id).css('left'))) === d.l) ? left + 'px': d.l + 'px',
+                top: (Math.round(parseInt($(param.id).css('top'),10)) === d.t) ? top + 'px': d.t + 'px',
+                left: (Math.round(parseInt($(param.id).css('left'),10)) === d.l) ? left + 'px': d.l + 'px',
                 'fontSize': ($(param.id).css('fontSize') === param.fontsize[0]) ? param.fontsize[1] : param.fontsize[0],
                 'width': ($(param.id).css('width') === '0px') ? param.width: '0px',
                 'height': ($(param.id).css('height') === '0px') ? param.height: '0px',
