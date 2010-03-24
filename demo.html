@@ -26,30 +26,31 @@ pre span {
 }
 </style>
 <script type="text/javascript" src="javascripts/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="javascripts/jquery.tworph.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.tworph.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
 	
 	$("#aptana_studio").tworph({
 		buttons: '.aptana_studio_btn',
-		width: '800px',
-		height: '340px',
-		fontsize: ['0.1em', '1em']
+		fullscreen: true,
+		title: 'Aptana Studio News',
+		fontsize: '1em'
 	});
 	
 	$("#textmate").tworph({
 		buttons: '.textmate_btn',
 		width: '800px',
 		height: '420px',
-		fontsize: ['0.1em', '1em']
+		fontsize: '1em'
 	});
 	
 	$("#tworph_info").tworph({
 		buttons: '.tworph_info_btn',
 		width: '800px',
 		height: '450px',
-		fontsize: ['0.1em', '1em']
+		title: 'Tworph Info',
+		fontsize: '1em'
 	});
 	
 	$(".tworph_info_btn").click();
@@ -84,7 +85,9 @@ $(document).ready(function() {
     buttons: '.MY_DIV_LINK',   <span>// &lt;a href="javascript:;" class="MY_DIV_LINK">&lt;/a></span>
     width: '800px',            <span>// Width of MY_DIV</span>
     height: '340px',           <span>// Height of MY_DIV</span>
-    fontsize: ['0.1em', '1em'] <span>// Font size of MY_DIV (the first value is neccasary for text zoom)</span>
+    fullscreen: true,          <span>// ALTERNATIV to width/height</span>
+    title: 'MY_TITLE',         <span>// Title of MY_DIV (optional)</span>
+    fontsize: '1em'            <span>// Font size of MY_DIV ('em' is necessary for text zoom)</span>
   });
 });
 &lt;/script>

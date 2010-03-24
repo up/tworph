@@ -1,5 +1,5 @@
 /*
- * 	twzoom 0.2 - jQuery plugin
+ * 	twzoom 0.3 - jQuery plugin
  *  inspired by tiddlywikis incredible tiddler appear effect 
  *  (a combination of morph, zoom and slide)
  * 
@@ -25,24 +25,41 @@
             overlay: {
                 opacity: '0.5',
                 background: '#666'
-            }
+            },
+            fontsize: {
+                start: '0.1em'
+            }        
         };
 
         var d = { r: false, o: null, l: null, t: null };
         settings.overlay.running = false;
         
         $(this)
-            .append('<' + 'span class="mc_' + $(this).attr('id') + ' tworph_close">x<' + '/span>')
-            .css('fontSize', param.fontsize[0]);
+            .append('<' + 'div class="tworph_header"><span id="tworph_title"></span><' + '/div>')
+            .append('<' + 'span class="mc_' + $(this).attr('id') + ' tworph_close" title="close"><' + '/span>')
+            .css('fontSize', settings.fontsize.start);
 
         var _self = $(this);
+        
+        if(param.title) {
+          $('#tworph_title').html(param.title);     
+        }
+
+        if(param.fullscreen && param.fullscreen === true) {
+          var width = (parseInt($(window).width(), 10) - 200) + 'px';
+          var height = (parseInt($(window).height(), 10) - 110) + 'px';     
+        }
+        else {
+          var width = param.width;
+          var height = param.height;          
+        }
 
         $(param.buttons + ', .mc_' + $(this).attr('id')).click(function() {
 
             twoggle({
                 id: _self,
-                width: param.width,
-                height: param.height,
+                width: width,
+                height: height,
                 left: $(this).position().left,
                 top: $(this).position().top,
                 fontsize: param.fontsize,
@@ -102,22 +119,22 @@
             var top = $(window).height();
             top -= parseInt($(param.id).css('paddingTop'),10);
             top -= parseInt($(param.id).css('paddingBottom'),10);
-            top -= parseInt(param.height,10);
+            top -= parseInt(height,10);
             top = top / 2;
             top += $("html").scrollTop();
 
             var left = $(window).width();
             left -= parseInt($(param.id).css('paddingLeft'),10);
             left -= parseInt($(param.id).css('paddingRight'),10);
-            left -= parseInt(param.width,10);
+            left -= parseInt(width,10);
             left = left / 2;
 
             $(param.id).animate({
                 top: (Math.round(parseInt($(param.id).css('top'),10)) === d.t) ? top + 'px': d.t + 'px',
                 left: (Math.round(parseInt($(param.id).css('left'),10)) === d.l) ? left + 'px': d.l + 'px',
-                'fontSize': ($(param.id).css('fontSize') === param.fontsize[0]) ? param.fontsize[1] : param.fontsize[0],
-                'width': ($(param.id).css('width') === '0px') ? param.width: '0px',
-                'height': ($(param.id).css('height') === '0px') ? param.height: '0px',
+                'fontSize': ($(param.id).css('fontSize') === settings.fontsize.start) ? param.fontsize : settings.fontsize.start,
+                'width': ($(param.id).css('width') === '0px') ? width: '0px',
+                'height': ($(param.id).css('height') === '0px') ? height: '0px',
                 opacity: ($(param.id).css('opacity') === settings.opacity) ? '1': settings.opacity
             },
             settings.duration,
