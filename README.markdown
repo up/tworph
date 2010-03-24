@@ -18,7 +18,9 @@ File size: 2.7 kb (minified)
     		buttons: '.MY_DIV_LINK',   // <a href="javascript:;" class="MY_DIV_LINK">[LINKNAME]</a>
     		width: '800px',            // Width of MY_DIV
     		height: '340px',           // Height of MY_DIV
-    		fontsize: ['0.1em', '1em'] // Font size of MY_DIV (the first value is neccasary for the text zooming)
+		    fullscreen: true,          // ALTERNATIVE! to width/height
+		    title: 'MY_TITLE',         // Title of MY_DIV (optional)
+		    fontsize: '1em'            // Font size of MY_DIV ('em' is necessary for text zoom)
   		});
 	});
 	</script>`

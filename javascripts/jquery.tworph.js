@@ -45,13 +45,15 @@
           $('#tworph_title').html(param.title);     
         }
 
+        var width, height;     
+
         if(param.fullscreen && param.fullscreen === true) {
-          var width = (parseInt($(window).width(), 10) - 200) + 'px';
-          var height = (parseInt($(window).height(), 10) - 110) + 'px';     
+          width = (parseInt($(window).width(), 10) - 200) + 'px';
+          height = (parseInt($(window).height(), 10) - 110) + 'px';     
         }
         else {
-          var width = param.width;
-          var height = param.height;          
+          width = param.width;
+          height = param.height;          
         }
 
         $(param.buttons + ', .mc_' + $(this).attr('id')).click(function() {
