@@ -1,9 +1,9 @@
 /*
- * 	twzoom 0.3 - jQuery plugin
+ * 	tworph 0.3 - jQuery plugin
  *  inspired by tiddlywikis incredible tiddler appear effect 
  *  (a combination of morph, zoom and slide)
  * 
- *	http://ulipreuss.eu/jquery-plugin-twzoom/
+ *	http://ulipreuss.eu/jquery-plugin-tworph/
  *	Copyright (c) 2010 Uli Preuss (http://ulipreuss.eu)
  *	Dual licensed under the MIT (MIT-LICENSE.txt)
  *	and GPL (GPL-LICENSE.txt) licenses.
@@ -34,26 +34,28 @@
         var d = { r: false, o: null, l: null, t: null };
         settings.overlay.running = false;
         
-        $(this)
-            .append('<' + 'div class="tworph_header"><span id="tworph_title"></span><' + '/div>')
-            .append('<' + 'span class="mc_' + $(this).attr('id') + ' tworph_close" title="close"><' + '/span>')
-            .css('fontSize', settings.fontsize.start);
-
         var _self = $(this);
         
-        if(param.title) {
-          $('#tworph_title').html(param.title);     
-        }
 
         var width, height;     
 
         if(param.fullscreen && param.fullscreen === true) {
-          width = (parseInt($(window).width(), 10) - 200) + 'px';
-          height = (parseInt($(window).height(), 10) - 110) + 'px';     
+          width = (parseInt($(window).width(), 10) - 60) + 'px';
+          height = (parseInt($(window).height(), 10) - 50) + 'px';     
         }
         else {
           width = param.width;
           height = param.height;          
+        }
+
+        $(this)
+            .append('<' + 'div class="tworph_header"><span id="tworph_title"></span>')
+            .append('<' + 'span class="mc_' + $(this).attr('id') + ' tworph_close" title="close"><' + '/span>')
+            .append('<' + '/div>')
+            .css('fontSize', settings.fontsize.start);
+
+        if(param.title) {
+          $('#tworph_title').html(param.title);     
         }
 
         $(param.buttons + ', .mc_' + $(this).attr('id')).click(function() {
@@ -130,20 +132,29 @@
             left -= parseInt($(param.id).css('paddingRight'),10);
             left -= parseInt(width,10);
             left = left / 2;
-
-            $(param.id).animate({
+                        
+            var content_height = parseInt(height,10);
+            content_height -= parseInt($('.tworph_header').css('height'),10);
+            content_height -= parseInt($('.tworph_content').css('paddingTop'),10);
+            content_height -= parseInt($('.tworph_content').css('paddingBottom'),10);
+            $(".tworph_content").css({
+                height: content_height + 'px'
+            });
+            
+            $(param.id).animate(
+              {
                 top: (Math.round(parseInt($(param.id).css('top'),10)) === d.t) ? top + 'px': d.t + 'px',
                 left: (Math.round(parseInt($(param.id).css('left'),10)) === d.l) ? left + 'px': d.l + 'px',
                 'fontSize': ($(param.id).css('fontSize') === settings.fontsize.start) ? param.fontsize : settings.fontsize.start,
                 'width': ($(param.id).css('width') === '0px') ? width: '0px',
                 'height': ($(param.id).css('height') === '0px') ? height: '0px',
                 opacity: ($(param.id).css('opacity') === settings.opacity) ? '1': settings.opacity
-            },
-            settings.duration,
-            function() {
+              },
+              settings.duration,
+              function() {
                 // Callback
                 $(param.id).css('display', ($(param.id).css('opacity') === settings.opacity) ? 'none': 'block');
-            }
+              }
             );
 
         };
