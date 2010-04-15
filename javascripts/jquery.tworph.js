@@ -23,7 +23,7 @@
             },
             duration: 250,
             overlay: {
-                opacity: '0.5',
+                opacity: '0.7',
                 background: '#666'
             },
             fontsize: {
@@ -146,9 +146,9 @@
                 top: (Math.round(parseInt($(param.id).css('top'),10)) === d.t) ? top + 'px': d.t + 'px',
                 left: (Math.round(parseInt($(param.id).css('left'),10)) === d.l) ? left + 'px': d.l + 'px',
                 'fontSize': ($(param.id).css('fontSize') === settings.fontsize.start) ? param.fontsize : settings.fontsize.start,
-                'width': ($(param.id).css('width') === '0px') ? width: '0px',
-                'height': ($(param.id).css('height') === '0px') ? height: '0px',
-                opacity: ($(param.id).css('opacity') === settings.opacity) ? '1': settings.opacity
+                'width': ($(param.id).css('width') === '0px') ? width : '0px',
+                'height': ($(param.id).css('height') === '0px') ? height : '0px',
+                opacity: ($(param.id).css('opacity') !== '1') ? '1': settings.opacity
               },
               settings.duration,
               function() {
